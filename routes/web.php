@@ -7,4 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/home', [HomeController::class, 'index']);
+Route::prefix('admin')->group(function () {
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/', 'index');
+    });
+});
