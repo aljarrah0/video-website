@@ -62,4 +62,9 @@ class BackEndController extends Controller
     {
         return Str::plural(strtolower(class_basename($this->model)));
     }
+
+    protected function filter($rows)
+    {
+        return $rows;
+    }
 }
