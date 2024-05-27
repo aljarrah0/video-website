@@ -19,6 +19,8 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/edit/{user}', 'edit')->name('edit');
+        Route::put('/update/{user}', 'update')->name('update');
+        Route::delete('/delete/{user}', 'delete')->name('delete');
     });
 });
 
