@@ -52,12 +52,16 @@
                                     {{ $row->email }}
                                 </td>
                                 <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="تعديل {{ $module }}" aria-describedby="tooltip15827">
-                                    <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="حذف {{ $module }}">
-                                      <i class="material-icons">close</i>
-                                    </button>
+                                    <a href="{{ route('admin.users.edit', $row->id) }}" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="تعديل {{ $module }}" aria-describedby="tooltip15827">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+                                    <form action="{{ route('admin.users.delete', $row->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="حذف {{ $module }}">
+                                          <i class="material-icons">close</i>
+                                        </button>
+                                    </form>
                                   </td>
                             </tr>
                         @endforeach
