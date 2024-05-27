@@ -4,7 +4,6 @@ namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Requests\BackEnd\UserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends BackEndController
 {
@@ -20,7 +19,7 @@ class UserController extends BackEndController
         return redirect()->route('admin.users.index')->with('تم إنشاء المستخدم بنجاح');
     }
 
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         $request->validate([
             'email' => ['required', 'email', 'unique:users,email,'.$user->id],

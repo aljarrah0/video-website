@@ -21,10 +21,23 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $commonRules = [
             'name' => ['required', 'string', 'min:3', 'max:255'],
-            'email' => ['required', 'string', 'email', 'min:3', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'max:255'],
+
         ];
+
+        if ($this->method() == 'POST') {
+            $specialRules = [
+                'email' => ['required', 'string', 'email', 'min:3', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'max:255'],
+            ];
+        } elseif ($this->method() == 'PUT') {
+            $specialRules = [
+                'email' => ['required', 'string', 'email', 'min:3', 'max:255', 'unique:users,email,'.$this->user->id],
+                'password' => ['nullable', 'string', 'min:8', 'max:255'],
+            ];
+        }
+
+        return $commonRules + $specialRules;
     }
 }
