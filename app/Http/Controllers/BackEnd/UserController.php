@@ -13,4 +13,18 @@ class UserController extends BackEndController
 
         return view('back-end.users.index', get_defined_vars());
     }
+
+    public function create()
+    {
+        $title = 'إنشاء مستخدم';
+
+        return view('back-end.users.create', get_defined_vars());
+    }
+
+    public function edit(User $user)
+    {
+        $title = 'تعديل المستخدم';
+
+        return view('back-end.users.edit', get_defined_vars());
+    }
 }

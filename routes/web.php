@@ -16,6 +16,8 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('users')->controller(UserController::class)->group(function () {
         Route::get('/', 'index');
+        Route::get('/create', 'create');
+        Route::get('/edit/{user}', 'edit');
     });
 });
 
