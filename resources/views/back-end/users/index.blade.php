@@ -6,7 +6,6 @@
 @endphp
 
 @section('content')
-    <h1>{{ $title }}</h1>
     <div class="row">
         <div class="col-md-12">
         <div class="card">
@@ -17,7 +16,7 @@
                         <p class="card-category"> {{ $descrption }}</p>
                     </div>
                     <div class="col-md-4 text-right">
-                        <a href="#pablo" class="btn btn-white btn-round">إضافة {{ $module }}</a>
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-white btn-round">إضافة {{ $module }}</a>
                     </div>
                 </div>
             </div>
