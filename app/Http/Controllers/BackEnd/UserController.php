@@ -7,19 +7,9 @@ use Illuminate\Http\Request;
 
 class UserController extends BackEndController
 {
-    public function index()
+    public function __construct(User $model)
     {
-        $title = 'المستخدمين';
-        $rows = User::paginate(10);
-
-        return view('back-end.users.index', get_defined_vars());
-    }
-
-    public function create()
-    {
-        $title = 'إنشاء مستخدم';
-
-        return view('back-end.users.create', get_defined_vars());
+        parent::__construct($model);
     }
 
     public function store(Request $request)
@@ -37,13 +27,6 @@ class UserController extends BackEndController
         return redirect()->route('admin.users.index')->with('تم إنشاء المستخدم بنجاح');
     }
 
-    public function edit(User $user)
-    {
-        $title = 'تعديل المستخدم';
-
-        return view('back-end.users.edit', get_defined_vars());
-    }
-
     public function update(Request $request, User $user)
     {
         $request->validate([
@@ -57,12 +40,5 @@ class UserController extends BackEndController
         ]);
 
         return redirect()->route('admin.users.index')->with('تم تعديل المستخدم بنجاح');
-    }
-
-    public function delete(User $user)
-    {
-        $user->delete();
-
-        return redirect()->route('admin.users.index')->with('تم حذف المستخدم بنجاح');
     }
 }

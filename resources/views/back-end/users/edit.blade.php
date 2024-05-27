@@ -9,7 +9,7 @@
                     <p class="card-category"></p>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.users.update', $user->id) }}" method="POST">
+                    <form action="{{ route('admin.users.update', $row->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         @include('back-end.users.form')
