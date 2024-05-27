@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Http\Requests\BackEnd\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,17 +13,9 @@ class UserController extends BackEndController
         parent::__construct($model);
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $request->validate([
-            'email' => ['required', 'email', 'unique:users,email'],
-        ]);
-
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+        User::create($request->validated());
 
         return redirect()->route('admin.users.index')->with('تم إنشاء المستخدم بنجاح');
     }
