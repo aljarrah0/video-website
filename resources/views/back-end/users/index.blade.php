@@ -8,13 +8,13 @@
                 <thead class=" text-primary">
                     <tr>
                         <th>
-                            ID
+                            #
                         </th>
                         <th>
-                            Name
+                            {{ trans('app.name') }}
                         </th>
                         <th>
-                            E-mail
+                            {{ trans('app.email') }}
                         </th>
                         <th class="text-right">
                             الإجراءات
