@@ -1,8 +1,6 @@
 @extends('back-end.layout.app', ['title' => $title])
 
-
 @section('content')
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">

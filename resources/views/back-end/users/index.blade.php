@@ -1,10 +1,5 @@
 @extends('back-end.layout.app')
 
-@php
-    $module = 'مستخدم';
-    $descrption = 'جدول يقوم بعرض بيانات المستخدمين';
-@endphp
-
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -13,10 +8,10 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h4 class="card-title ">{{ $title }}</h4>
-                        <p class="card-category"> {{ $descrption }}</p>
+                        <p class="card-category"></p>
                     </div>
                     <div class="col-md-4 text-right">
-                        <a href="{{ route('admin.users.create') }}" class="btn btn-white btn-round">إضافة {{ $module }}</a>
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-white btn-round">{{ $create }}</a>
                     </div>
                 </div>
             </div>
@@ -52,13 +47,13 @@
                                     {{ $row->email }}
                                 </td>
                                 <td class="td-actions text-right">
-                                    <a href="{{ route('admin.users.edit', $row->id) }}" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="تعديل {{ $module }}" aria-describedby="tooltip15827">
+                                    <a href="{{ route('admin.users.edit', $row) }}" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="{{ $edit }}" aria-describedby="tooltip15827">
                                         <i class="material-icons">edit</i>
                                     </a>
-                                    <form action="{{ route('admin.users.delete', $row->id) }}" method="POST">
+                                    <form action="{{ route('admin.users.delete', $row) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="حذف {{ $module }}">
+                                        <button type="submit" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="{{ $delete }}">
                                           <i class="material-icons">close</i>
                                         </button>
                                     </form>

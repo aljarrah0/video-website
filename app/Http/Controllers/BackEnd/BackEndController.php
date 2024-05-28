@@ -20,6 +20,10 @@ class BackEndController extends Controller
     public function index()
     {
         $title = trans('app.'.$this->getClassNameFromModel().'.index');
+        $create = trans('app.'.$this->getClassNameFromModel().'.create');
+        $edit = trans('app.'.$this->getClassNameFromModel().'.edit');
+        $delete = trans('app.'.$this->getClassNameFromModel().'.delete');
+
         $rows = $this->model->paginate(BackEndController::PAGE_SIZE);
 
         return view('back-end.'.$this->getClassNameFromModel().'.index', get_defined_vars());
