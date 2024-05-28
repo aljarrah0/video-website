@@ -8,11 +8,9 @@ use Illuminate\Support\Str;
 
 class BackEndController extends Controller
 {
-    protected $model;
-
-    public function __construct(Model $model)
+    public function __construct(protected Model $model)
     {
-        $this->model = $model;
+
     }
 
     public function index()
