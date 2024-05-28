@@ -54,7 +54,7 @@ class BackEndController extends Controller
 
         $row->delete();
 
-        return redirect()->route('admin.users.index')->with('تم حذف المستخدم بنجاح');
+        return redirect()->route('admin.'.$this->getModelName().'.index')->with('تم حذف المستخدم بنجاح');
     }
 
     protected function getModelName()
