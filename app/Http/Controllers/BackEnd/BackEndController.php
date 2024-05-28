@@ -19,33 +19,33 @@ class BackEndController extends Controller
 
     public function index()
     {
-        $title = trans('app.'.$this->getClassNameFromModel().'.index');
-        $create = trans('app.'.$this->getClassNameFromModel().'.create');
-        $edit = trans('app.'.$this->getClassNameFromModel().'.edit');
-        $delete = trans('app.'.$this->getClassNameFromModel().'.delete');
-        $model = $this->getClassNameFromModel();
+        $title = trans('app.'.$this->getModelName().'.index');
+        $create = trans('app.'.$this->getModelName().'.create');
+        $edit = trans('app.'.$this->getModelName().'.edit');
+        $delete = trans('app.'.$this->getModelName().'.delete');
+        $model = $this->getModelName();
         $rows = $this->model;
         $rows = $this->filter($rows);
         $rows = $rows->paginate(BackEndController::PAGE_SIZE);
 
-        return view('back-end.'.$this->getClassNameFromModel().'.index', get_defined_vars());
+        return view('back-end.'.$this->getModelName().'.index', get_defined_vars());
     }
 
     public function create()
     {
-        $title = trans('app.'.$this->getClassNameFromModel().'.create');
-        $model = $this->getClassNameFromModel();
+        $title = trans('app.'.$this->getModelName().'.create');
+        $model = $this->getModelName();
 
-        return view('back-end.'.$this->getClassNameFromModel().'.create', get_defined_vars());
+        return view('back-end.'.$this->getModelName().'.create', get_defined_vars());
     }
 
     public function edit($id)// هل استطيع أن احافظ على مفهوم injection
     {
-        $title = trans('app.'.$this->getClassNameFromModel().'.edit');
-        $model = $this->getClassNameFromModel();
+        $title = trans('app.'.$this->getModelName().'.edit');
+        $model = $this->getModelName();
         $row = $this->model->findOrFail($id);
 
-        return view('back-end.'.$this->getClassNameFromModel().'.edit', get_defined_vars());
+        return view('back-end.'.$this->getModelName().'.edit', get_defined_vars());
     }
 
     public function destroy($id)// هل استطيع أن احافظ على مفهوم injection
@@ -57,19 +57,9 @@ class BackEndController extends Controller
         return redirect()->route('admin.users.index')->with('تم حذف المستخدم بنجاح');
     }
 
-    protected function getClassNameFromModel()
-    {
-        return strtolower($this->getPluralModelName());
-    }
-
-    protected function getPluralModelName()
-    {
-        return Str::plural($this->getModelName());
-    }
-
     protected function getModelName()
     {
-        return class_basename($this->model);
+        return strtolower(Str::plural(class_basename($this->model)));
     }
 
     protected function filter($rows)
