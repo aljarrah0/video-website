@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackEnd\CategoryController;
 use App\Http\Controllers\BackEnd\HomeController;
 use App\Http\Controllers\BackEnd\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +16,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
     });
 
     Route::resource('users', UserController::class)->except(['show']);
+    Route::resource('categories', CategoryController::class)->except(['show']);
 });
 
 Auth::routes();
