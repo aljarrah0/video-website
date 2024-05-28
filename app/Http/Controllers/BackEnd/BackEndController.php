@@ -48,7 +48,7 @@ class BackEndController extends Controller
         return view('back-end.'.$this->getClassNameFromModel().'.edit', get_defined_vars());
     }
 
-    public function delete($id)// هل استطيع أن احافظ على مفهوم injection
+    public function destroy($id)// هل استطيع أن احافظ على مفهوم injection
     {
         $row = $this->model->findOrFail($id);
 

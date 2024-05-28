@@ -35,7 +35,7 @@
                             </td>
                             <td class="td-actions text-right">
                                 @include('back-end.shared.buttons.edit')
-                                @include('back-end.shared.buttons.delete')
+                                @include('back-end.shared.buttons.destroy')
                             </td>
                         </tr>
                     @endforeach
