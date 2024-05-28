@@ -8,6 +8,10 @@ use Illuminate\Support\Str;
 
 class BackEndController extends Controller
 {
+    const PAGE_SIZE = 25;
+
+    const LONG_PAGE_SIZE = 100;
+
     public function __construct(protected Model $model)
     {
 
@@ -15,9 +19,8 @@ class BackEndController extends Controller
 
     public function index()
     {
-
         $title = trans('app.'.$this->getClassNameFromModel().'.index');
-        $rows = $this->model->paginate(10);
+        $rows = $this->model->paginate(BackEndController::PAGE_SIZE);
 
         return view('back-end.'.$this->getClassNameFromModel().'.index', get_defined_vars());
     }
