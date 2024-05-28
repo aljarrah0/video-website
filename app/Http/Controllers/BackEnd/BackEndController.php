@@ -24,7 +24,6 @@ class BackEndController extends Controller
         $edit = trans('app.'.$this->getClassNameFromModel().'.edit');
         $delete = trans('app.'.$this->getClassNameFromModel().'.delete');
         $model = $this->getClassNameFromModel();
-
         $rows = $this->model;
         $rows = $this->filter($rows);
         $rows = $rows->paginate(BackEndController::PAGE_SIZE);
@@ -35,6 +34,7 @@ class BackEndController extends Controller
     public function create()
     {
         $title = trans('app.'.$this->getClassNameFromModel().'.create');
+        $model = $this->getClassNameFromModel();
 
         return view('back-end.'.$this->getClassNameFromModel().'.create', get_defined_vars());
     }
@@ -42,6 +42,7 @@ class BackEndController extends Controller
     public function edit($id)// هل استطيع أن احافظ على مفهوم injection
     {
         $title = trans('app.'.$this->getClassNameFromModel().'.edit');
+        $model = $this->getClassNameFromModel();
         $row = $this->model->findOrFail($id);
 
         return view('back-end.'.$this->getClassNameFromModel().'.edit', get_defined_vars());

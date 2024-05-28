@@ -2,9 +2,9 @@
 
 @section('content')
     @component('back-end.shared.create', ['title' => $title])
-        <form action="{{ route('admin.users.store') }}" method="POST">
+        <form action="{{ route('admin.'.$model.'.store') }}" method="POST">
             @csrf
-            @include('back-end.users.form')
+            @include('back-end.'.$model.'.form')
             <button type="submit" class="btn btn-primary pull-right">{{ $title }}</button>
             <div class="clearfix"></div>
         </form>
