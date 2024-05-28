@@ -37,7 +37,7 @@ class BackEndController extends Controller
         return view('back-end.'.$this->getClassNameFromModel().'.edit', get_defined_vars());
     }
 
-    public function delete($id)
+    public function delete($id)// هل استطيع أن احافظ على مفهوم injection
     {
         $row = $this->model->findOrFail($id);
 
@@ -58,7 +58,7 @@ class BackEndController extends Controller
 
     protected function getModelName()
     {
-        return Str::plural(strtolower(class_basename($this->model)));
+        return class_basename($this->model);
     }
 
     protected function filter($rows)
