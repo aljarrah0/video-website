@@ -23,6 +23,7 @@ class BackEndController extends Controller
         $create = trans('app.'.$this->getClassNameFromModel().'.create');
         $edit = trans('app.'.$this->getClassNameFromModel().'.edit');
         $delete = trans('app.'.$this->getClassNameFromModel().'.delete');
+        $model = $this->getClassNameFromModel();
 
         $rows = $this->model->paginate(BackEndController::PAGE_SIZE);
 

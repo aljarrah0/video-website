@@ -47,17 +47,9 @@
                                     {{ $row->email }}
                                 </td>
                                 <td class="td-actions text-right">
-                                    <a href="{{ route('admin.users.edit', $row) }}" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="{{ $edit }}" aria-describedby="tooltip15827">
-                                        <i class="material-icons">edit</i>
-                                    </a>
-                                    <form action="{{ route('admin.users.delete', $row) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="{{ $delete }}">
-                                          <i class="material-icons">close</i>
-                                        </button>
-                                    </form>
-                                  </td>
+                                    @include('back-end.shared.buttons.edit')
+                                    @include('back-end.shared.buttons.delete')
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
