@@ -14,14 +14,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
     });
 
-    Route::prefix('users')->as('users.')->controller(UserController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::post('/store', 'store')->name('store');
-        Route::get('/edit/{user}', 'edit')->name('edit');
-        Route::put('/update/{user}', 'update')->name('update');
-        Route::delete('/delete/{user}', 'delete')->name('delete');
-    });
+    Route::resource('users', UserController::class)->except(['show']);
 });
 
 Auth::routes();
