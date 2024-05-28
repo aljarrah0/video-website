@@ -25,7 +25,9 @@ class BackEndController extends Controller
         $delete = trans('app.'.$this->getClassNameFromModel().'.delete');
         $model = $this->getClassNameFromModel();
 
-        $rows = $this->model->paginate(BackEndController::PAGE_SIZE);
+        $rows = $this->model;
+        $rows = $this->filter($rows);
+        $rows = $rows->paginate(BackEndController::PAGE_SIZE);
 
         return view('back-end.'.$this->getClassNameFromModel().'.index', get_defined_vars());
     }
