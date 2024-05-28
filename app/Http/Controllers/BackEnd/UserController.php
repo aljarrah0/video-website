@@ -16,7 +16,7 @@ class UserController extends BackEndController
     {
         $this->model->create($request->validated());
 
-        return redirect()->route('admin.users.index')->with('تم إنشاء المستخدم بنجاح');
+        return redirect()->route('admin.'.$this->getModelName().'.index')->with('تم إنشاء المستخدم بنجاح');
     }
 
     public function update(UserRequest $request, User $user)
@@ -27,6 +27,6 @@ class UserController extends BackEndController
             'password' => $request->password ?? $user->password,
         ]);
 
-        return redirect()->route('admin.users.index')->with('تم تعديل المستخدم بنجاح');
+        return redirect()->route('admin.'.$this->getModelName().'.index')->with('تم تعديل المستخدم بنجاح');
     }
 }
