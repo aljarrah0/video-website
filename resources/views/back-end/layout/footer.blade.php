@@ -3,9 +3,7 @@
         <nav class="float-left">
             <ul>
                 <li>
-                    <a href="https://www.creative-tim.com">
-                        Creative Tim
-                    </a>
+                    <a href="https://www.creative-tim.com">Creative Tim</a>
                 </li>
             </ul>
         </nav>

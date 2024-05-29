@@ -9,9 +9,7 @@
                     </div>
                     <div class="col-md-4 text-right">
                         <a href="{{ route('admin.'.$model.'.create') }}" class="btn btn-white btn-round">{{ $create }}
-                            <span class="material-icons">
-                                add
-                            </span>
+                            <span class="material-icons">add</span>
                         </a>
                     </div>
                 </div>
