@@ -8,6 +8,7 @@ return [
     'meta_keywords' => 'كلمات دلالية',
     'meta_description' => 'كلمات الوصف',
     'no_data' => 'لا يوجد بيانات',
+    'description' => 'الوصف',
 
     'users' => [
         'index' => 'المستخدمين',
@@ -35,5 +36,12 @@ return [
         'create' => 'إنشاء وسم',
         'edit' => 'تعديل الوسم',
         'delete' => 'حذف الوسم',
+    ],
+
+    'pages' => [
+        'index' => 'الصفحات',
+        'create' => 'إنشاء صفحة',
+        'edit' => 'تعديل الصفحة',
+        'delete' => 'حذف الصفحة',
     ],
 ];
