@@ -27,21 +27,24 @@
                 <a class="nav-link" href="{{ route('admin.categories.index') }}">
                     <i class="material-icons">category</i>
                     <p>{{ trans('app.categories.index') }}</p>
-
                 </a>
             </li>
             <li class="nav-item {{ is_active('skills') }}">
                 <a class="nav-link" href="{{ route('admin.skills.index') }}">
                     <i class="material-icons">content_paste</i>
                     <p>{{ trans('app.skills.index') }}</p>
-
                 </a>
             </li>
             <li class="nav-item {{ is_active('tags') }}">
                 <a class="nav-link" href="{{ route('admin.tags.index') }}">
                     <i class="material-icons">style</i>
                     <p>{{ trans('app.tags.index') }}</p>
-
+                </a>
+            </li>
+            <li class="nav-item {{ is_active('pages') }}">
+                <a class="nav-link" href="{{ route('admin.pages.index') }}">
+                    <i class="material-icons">auto_stories</i>
+                    <p>{{ trans('app.pages.index') }}</p>
                 </a>
             </li>
             <!-- your sidebar here -->
