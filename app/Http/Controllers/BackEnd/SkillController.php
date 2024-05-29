@@ -16,13 +16,13 @@ class SkillController extends BackEndController
     {
         $this->model->create($request->validated());
 
-        return redirect()->route('admin.'.$this->getModelName().'.index')->with('تم إنشاء المستخدم بنجاح');
+        return redirect()->route('admin.'.$this->getModelName().'.index');
     }
 
     public function update(SkillRequest $request, Skill $skill)
     {
         $skill->update($request->validated());
 
-        return redirect()->route('admin.'.$this->getModelName().'.index')->with('تم تعديل المستخدم بنجاح');
+        return redirect()->route('admin.'.$this->getModelName().'.index');
     }
 }

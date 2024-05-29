@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($rows as $row)
+                    @forelse ($rows as $row)
                         <tr>
                             <td>
                                 {{ $loop->iteration }}
@@ -31,7 +31,13 @@
                                 @include('back-end.shared.buttons.destroy')
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td class="text-center" colspan="10">
+                                {{ trans('app.no_data') }}
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
