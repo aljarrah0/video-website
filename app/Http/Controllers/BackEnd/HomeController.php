@@ -11,7 +11,7 @@ class HomeController extends BackEndController
         parent::__construct($model);
     }
 
-    public function index()
+    public function home()
     {
         $title = trans('app.home');
 

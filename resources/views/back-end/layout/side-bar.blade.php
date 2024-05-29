@@ -11,8 +11,8 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item {{ is_active('admin') }}">
-                <a class="nav-link" href="{{ route('admin.index') }}">
+            <li class="nav-item {{ is_active('home') }}">
+                <a class="nav-link" href="{{ route('admin.home') }}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>

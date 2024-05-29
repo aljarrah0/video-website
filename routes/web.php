@@ -14,7 +14,7 @@ Route::get('/', function () {
 
 Route::prefix('admin')->as('admin.')->group(function () {
     Route::controller(HomeController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
+        Route::get('/home', 'home')->name('home');
     });
 
     Route::resource('users', UserController::class)->except(['show']);
