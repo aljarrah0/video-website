@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BackEnd\CategoryController;
 use App\Http\Controllers\BackEnd\HomeController;
+use App\Http\Controllers\BackEnd\PageController;
 use App\Http\Controllers\BackEnd\SkillController;
 use App\Http\Controllers\BackEnd\TagController;
 use App\Http\Controllers\BackEnd\UserController;
@@ -21,6 +22,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
     Route::resource('categories', CategoryController::class)->except(['show']);
     Route::resource('skills', SkillController::class)->except(['show']);
     Route::resource('tags', TagController::class)->except(['show']);
+    Route::resource('pages', PageController::class)->except(['show']);
 });
 
 Auth::routes();
