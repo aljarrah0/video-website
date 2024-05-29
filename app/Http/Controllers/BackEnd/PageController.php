@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Controllers\BackEnd\BackEndController;
 use App\Http\Requests\BackEnd\PageRequest;
