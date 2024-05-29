@@ -37,6 +37,13 @@
 
                 </a>
             </li>
+            <li class="nav-item {{ is_active('tags') }}">
+                <a class="nav-link" href="{{ route('admin.tags.index') }}">
+                    <i class="material-icons">style</i>
+                    <p>{{ trans('app.tags.index') }}</p>
+
+                </a>
+            </li>
             <!-- your sidebar here -->
         </ul>
     </div>
