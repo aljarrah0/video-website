@@ -6,6 +6,7 @@ use App\Http\Controllers\BackEnd\PageController;
 use App\Http\Controllers\BackEnd\SkillController;
 use App\Http\Controllers\BackEnd\TagController;
 use App\Http\Controllers\BackEnd\UserController;
+use App\Http\Controllers\BackEnd\VideoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
     Route::resource('skills', SkillController::class)->except(['show']);
     Route::resource('tags', TagController::class)->except(['show']);
     Route::resource('pages', PageController::class)->except(['show']);
+    Route::resource('videos', VideoController::class)->except(['show']);
 });
 
 Auth::routes();
