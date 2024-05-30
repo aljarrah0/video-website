@@ -8,6 +8,8 @@
                     <tr>
                         <th>#</th>
                         <th>{{ trans('app.name') }}</th>
+                        <th>{{ trans('app.categories.index') }}</th>
+                        <th>{{ trans('app.users.index') }}</th>
                         <th class="text-right">الإجراءات</th>
                     </tr>
                 </thead>
@@ -16,6 +18,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
+                            <td>{{ $row->category->name }}</td>
+                            <td>{{ $row->user->name }}</td>
                             <td class="td-actions text-right">
                                 @include('back-end.shared.buttons.edit')
                                 @include('back-end.shared.buttons.destroy')
