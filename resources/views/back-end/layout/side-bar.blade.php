@@ -47,6 +47,12 @@
                     <p>{{ trans('app.pages.index') }}</p>
                 </a>
             </li>
+            <li class="nav-item {{ is_active('videos') }}">
+                <a class="nav-link" href="{{ route('admin.videos.index') }}">
+                    <i class="material-icons">videocam</i>
+                    <p>{{ trans('app.videos.index') }}</p>
+                </a>
+            </li>
             <!-- your sidebar here -->
         </ul>
     </div>
