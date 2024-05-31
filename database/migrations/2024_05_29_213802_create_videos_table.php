@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('meta_description');
             $table->text('description');
             $table->string('youtube');
+            $table->string('image');
             $table->boolean('is_published')->default(true);
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
