@@ -40,7 +40,7 @@ class BackEndController extends Controller
         $title = trans('app.'.$this->getModelName().'.create');
         $model = $this->getModelName();
 
-        return view('back-end.'.$this->getModelName().'.create', get_defined_vars());
+        return view('back-end.'.$this->getModelName().'.create', get_defined_vars())->with($this->append());
     }
 
     public function edit($id)// هل استطيع أن احافظ على مفهوم injection
@@ -49,7 +49,7 @@ class BackEndController extends Controller
         $model = $this->getModelName();
         $row = $this->model->findOrFail($id);
 
-        return view('back-end.'.$this->getModelName().'.edit', get_defined_vars());
+        return view('back-end.'.$this->getModelName().'.edit', get_defined_vars())->with($this->append());
     }
 
     public function destroy($id)// هل استطيع أن احافظ على مفهوم injection
@@ -72,6 +72,11 @@ class BackEndController extends Controller
     }
 
     protected function with()
+    {
+        return [];
+    }
+
+    protected function append()
     {
         return [];
     }

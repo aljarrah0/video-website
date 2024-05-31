@@ -18,13 +18,11 @@ class VideoController extends BackEndController
         return ['user', 'category'];
     }
 
-    public function create()
+    protected function append()
     {
-        $title = trans('app.'.$this->getModelName().'.create');
-        $model = $this->getModelName();
-        $categories = Category::get(['id', 'name']);
-
-        return view('back-end.'.$this->getModelName().'.create', get_defined_vars());
+        return [
+            'categories' => Category::get(['id', 'name']),
+        ];
     }
 
     public function store(VideoRequest $request)
@@ -32,16 +30,6 @@ class VideoController extends BackEndController
         $this->model->create($request->validated() + ['user_id' => auth()->user()->id]);
 
         return redirect()->route('admin.'.$this->getModelName().'.index');
-    }
-
-    public function edit($id)// هل استطيع أن احافظ على مفهوم injection
-    {
-        $title = trans('app.'.$this->getModelName().'.edit');
-        $model = $this->getModelName();
-        $row = $this->model->findOrFail($id);
-        $categories = Category::get(['id', 'name']);
-
-        return view('back-end.'.$this->getModelName().'.edit', get_defined_vars());
     }
 
     public function update(VideoRequest $request, Video $video)
