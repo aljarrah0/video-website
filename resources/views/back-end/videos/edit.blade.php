@@ -9,5 +9,13 @@
             <button type="submit" class="btn btn-primary pull-right">{{ $title }}</button>
             <div class="clearfix"></div>
         </form>
+        @slot('video')
+            @php
+                $url = getYoutubeId($row->youtube)
+            @endphp
+            @if ($url)
+                <iframe width="400" src="https://www.youtube.com/embed/{{ $url }}" allowfullscreen></iframe>
+            @endif
+        @endslot
     @endcomponent
 @endsection

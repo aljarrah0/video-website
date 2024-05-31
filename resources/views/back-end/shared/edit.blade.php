@@ -15,7 +15,6 @@
             <div class="card">
                 <div class="card-body">
                     {{ isset($video)? $video : '' }}
-                    {{-- {{ $video }} --}}
                 </div>
             </div>
         </div>
