@@ -13,18 +13,9 @@ class VideoController extends BackEndController
         parent::__construct($model);
     }
 
-    public function index()
+    protected function with()
     {
-        $title = trans('app.'.$this->getModelName().'.index');
-        $create = trans('app.'.$this->getModelName().'.create');
-        $edit = trans('app.'.$this->getModelName().'.edit');
-        $delete = trans('app.'.$this->getModelName().'.delete');
-        $model = $this->getModelName();
-        $rows = $this->model->with('user', 'category');
-        $rows = $this->filter($rows);
-        $rows = $rows->paginate(BackEndController::PAGE_SIZE);
-
-        return view('back-end.'.$this->getModelName().'.index', get_defined_vars());
+        return ['user', 'category'];
     }
 
     public function create()

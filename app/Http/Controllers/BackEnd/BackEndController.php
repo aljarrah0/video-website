@@ -25,6 +25,10 @@ class BackEndController extends Controller
         $delete = trans('app.'.$this->getModelName().'.delete');
         $model = $this->getModelName();
         $rows = $this->model;
+        $with = $this->with();
+        if (! empty($with)) {
+            $rows = $rows->with($with);
+        }
         $rows = $this->filter($rows);
         $rows = $rows->paginate(BackEndController::PAGE_SIZE);
 
@@ -65,5 +69,10 @@ class BackEndController extends Controller
     protected function filter($rows)
     {
         return $rows;
+    }
+
+    protected function with()
+    {
+        return [];
     }
 }
