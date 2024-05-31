@@ -53,10 +53,24 @@
         <div class="form-group bmd-form-group">
             <label class="bmd-label-floating">{{ trans('app.skills.index') }}</label>
             <select name="{{ $input }}" class="form-control @error($input) is-invalid @enderror" style="height: 100px" multiple>
-                <option value="">{{ trans('app.select') }}</option>
+                <option disabled>{{ trans('app.select') }}</option>
                 @foreach ($skills as $skill)
                     {{-- <option value="{{ $skill->id }}" @selected(old($input, isset($row) ? $row->{$input} : '') == $skill->id)>{{ $skill->name }}</option> --}}
                     <option value="{{ $skill->id }}" @selected(in_array($skill->id, $skillsSelected))>{{ $skill->name }}</option>
+                @endforeach
+            </select>
+            @include('back-end.shared.error')
+        </div>
+    </div>
+    @php $input = 'tags[]' @endphp
+    <div class="col-md-6">
+        <div class="form-group bmd-form-group">
+            <label class="bmd-label-floating">{{ trans('app.tags.index') }}</label>
+            <select name="{{ $input }}" class="form-control @error($input) is-invalid @enderror" style="height: 100px" multiple>
+                <option disabled>{{ trans('app.select') }}</option>
+                @foreach ($tags as $tag)
+                    {{-- <option value="{{ $tag->id }}" @selected(old($input, isset($row) ? $row->{$input} : '') == $tag->id)>{{ $tag->name }}</option> --}}
+                    <option value="{{ $tag->id }}" @selected(in_array($tag->id, $tagsSelected))>{{ $tag->name }}</option>
                 @endforeach
             </select>
             @include('back-end.shared.error')
