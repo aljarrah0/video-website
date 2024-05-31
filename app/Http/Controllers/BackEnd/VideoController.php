@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Skill;
 use App\Models\Tag;
 use App\Models\Video;
+use Illuminate\Support\Str;
 
 class VideoController extends BackEndController
 {
@@ -41,7 +42,11 @@ class VideoController extends BackEndController
 
     public function store(VideoRequest $request)
     {
-        $video = $this->model->create($request->validated() + ['user_id' => auth()->user()->id]);
+        $image = $request->file('image');
+        $imageName = time().Str::random(10).'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('uploads'), $imageName);
+
+        $video = $this->model->create(['user_id' => auth()->user()->id, 'image' => $imageName] + $request->validated());
         $video->skills()->sync($request->skills);
         $video->tags()->sync($request->tags);
 
@@ -50,7 +55,13 @@ class VideoController extends BackEndController
 
     public function update(VideoRequest $request, Video $video)
     {
-        $video->update($request->validated());
+        $image = $request->file('image');
+        if ($image) {
+            $imageName = time().Str::random(10).'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('uploads'), $imageName);
+        }
+
+        $video->update(['image' => $imageName ?? $video->image] + $request->validated());
         $video->skills()->sync($request->skills);
         $video->tags()->sync($request->tags);
 
