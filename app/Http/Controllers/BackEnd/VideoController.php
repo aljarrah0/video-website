@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Requests\BackEnd\VideoRequest;
 use App\Models\Category;
+use App\Models\Skill;
 use App\Models\Video;
 
 class VideoController extends BackEndController
@@ -20,14 +21,24 @@ class VideoController extends BackEndController
 
     protected function append()
     {
-        return [
+        $variables = [
             'categories' => Category::get(['id', 'name']),
+            'skills' => Skill::get(['id', 'name']),
+            'skillsSelected' => [],
         ];
+
+        $condition = request()->route()->parameter('video');
+        if ($condition) {
+            $variables['skillsSelected'] = $this->model->find($condition)->skills()->pluck('skills.id')->toArray();
+        }
+
+        return $variables;
     }
 
     public function store(VideoRequest $request)
     {
-        $this->model->create($request->validated() + ['user_id' => auth()->user()->id]);
+        $video = $this->model->create($request->validated() + ['user_id' => auth()->user()->id]);
+        $video->skills()->sync($request->skills);
 
         return redirect()->route('admin.'.$this->getModelName().'.index');
     }
@@ -35,6 +46,7 @@ class VideoController extends BackEndController
     public function update(VideoRequest $request, Video $video)
     {
         $video->update($request->validated());
+        $video->skills()->sync($request->skills);
 
         return redirect()->route('admin.'.$this->getModelName().'.index');
     }
