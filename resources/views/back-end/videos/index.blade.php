@@ -8,6 +8,7 @@
                     <tr>
                         <th>#</th>
                         <th>{{ trans('app.name') }}</th>
+                        <th>{{ trans('app.status') }}</th>
                         <th>{{ trans('app.categories.index') }}</th>
                         <th>{{ trans('app.users.index') }}</th>
                         <th class="text-right">الإجراءات</th>
@@ -18,6 +19,13 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
+                            <td>
+                                @if ($row->is_published == 1)
+                                    <span class="material-icons">visibility</span>
+                                @elseif ($row->is_published == 0)
+                                    <span class="material-icons">visibility_off</span>
+                                @endif
+                            </td>
                             <td>{{ $row->category->name }}</td>
                             <td>{{ $row->user->name }}</td>
                             <td class="td-actions text-right">
