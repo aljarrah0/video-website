@@ -14,6 +14,7 @@ return [
     'is_hidden' => 'تم إخفائه',
     'select' => 'اختر',
     'status' => 'الحالة',
+    'image' => 'الصورة',
 
     'users' => [
         'index' => 'المستخدمين',
