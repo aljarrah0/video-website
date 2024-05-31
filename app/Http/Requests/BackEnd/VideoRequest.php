@@ -34,9 +34,11 @@ class VideoRequest extends FormRequest
 
         if ($this->method() == 'POST') {
             $specialRules = [
+                'image' => ['required', 'image'],
             ];
         } elseif ($this->method() == 'PUT') {
             $specialRules = [
+                'image' => ['nullable', 'image'],
             ];
         }
 
