@@ -2,7 +2,7 @@
 
 @section('content')
     @component('back-end.shared.create', ['title' => $title])
-        <form action="{{ route('admin.'.$model.'.store') }}" method="POST">
+        <form action="{{ route('admin.'.$model.'.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @include('back-end.'.$model.'.form')
             <button type="submit" class="btn btn-primary pull-right">{{ $title }}</button>
