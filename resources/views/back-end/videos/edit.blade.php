@@ -14,10 +14,9 @@
                 $url = getYoutubeId($row->youtube);
             @endphp
             @if ($url)
-                <iframe width="400" src="https://www.youtube.com/embed/{{ $url }}" style="margin-bottom: 20px"
-                    allowfullscreen></iframe>
+                <iframe width="400" height="200" src="https://www.youtube.com/embed/{{ $url }}" style="margin-bottom: 20px" allowfullscreen></iframe>
             @endif
-            <img src="{{ url('uploads/' . $row->image) }}" width="400">
+            <img src="{{ url('uploads/' . $row->image) }}" width="400" height="200">
         @endslot
     @endcomponent
 @endsection
