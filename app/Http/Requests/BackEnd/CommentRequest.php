@@ -22,6 +22,7 @@ class CommentRequest extends FormRequest
     public function rules(): array
     {
         $commonRules = [
+            'video_id' => ['required', 'integer', 'exists:videos,id'],
             'comment' => ['required', 'string', 'min:3'],
         ];
 
