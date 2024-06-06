@@ -7,10 +7,13 @@ use App\Models\Category;
 use App\Models\Skill;
 use App\Models\Tag;
 use App\Models\Video;
+use App\Traits\CommentTrait;
 use Illuminate\Support\Str;
 
 class VideoController extends BackEndController
 {
+    use CommentTrait;
+
     public function __construct(Video $model)
     {
         parent::__construct($model);
@@ -29,12 +32,14 @@ class VideoController extends BackEndController
             'tags' => Tag::get(['id', 'name']),
             'skillsSelected' => [],
             'tagsSelected' => [],
+            'comments' => [],
         ];
 
         $condition = request()->route()->parameter('video');
         if ($condition) {
             $variables['skillsSelected'] = $this->model->find($condition)->skills()->pluck('skills.id')->toArray();
             $variables['tagsSelected'] = $this->model->find($condition)->tags()->pluck('tags.id')->toArray();
+            $variables['comments'] = $this->model->find($condition)->comments()->get();
         }
 
         return $variables;
