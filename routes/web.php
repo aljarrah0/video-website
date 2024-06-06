@@ -25,6 +25,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
     Route::resource('tags', TagController::class)->except(['show']);
     Route::resource('pages', PageController::class)->except(['show']);
     Route::resource('videos', VideoController::class)->except(['show']);
+    Route::post('comments', [VideoController::class, 'commentStore'])->name('comment.store');
 });
 
 Auth::routes();
