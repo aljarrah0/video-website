@@ -39,7 +39,7 @@ class VideoController extends BackEndController
         if ($condition) {
             $variables['skillsSelected'] = $this->model->find($condition)->skills()->pluck('skills.id')->toArray();
             $variables['tagsSelected'] = $this->model->find($condition)->tags()->pluck('tags.id')->toArray();
-            $variables['comments'] = $this->model->find($condition)->comments()->get();
+            $variables['comments'] = $this->model->find($condition)->comments()->with('user')->get();
         }
 
         return $variables;
