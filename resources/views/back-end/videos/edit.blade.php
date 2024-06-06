@@ -19,4 +19,10 @@
             <img src="{{ url('uploads/' . $row->image) }}" width="400" height="200">
         @endslot
     @endcomponent
+    @component('back-end.shared.edit', ['title' => 'التعليقات'])
+        @include('back-end.comments.index')
+        @slot('video')
+            @include('back-end.comments.create')
+        @endslot
+    @endcomponent
 @endsection
