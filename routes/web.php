@@ -27,6 +27,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
     Route::resource('videos', VideoController::class)->except(['show']);
     Route::post('comments', [VideoController::class, 'commentStore'])->name('comment.store');
     Route::get('comments/{id}', [VideoController::class, 'commentDelete'])->name('comment.delete');
+    Route::put('comments/{id}', [VideoController::class, 'commentUpdate'])->name('comment.update');
 });
 
 Auth::routes();
