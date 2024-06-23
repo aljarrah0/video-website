@@ -32,3 +32,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::fallback(function () {
+    return 'هذا الرابط غير موجود';
+});
