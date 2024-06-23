@@ -18,6 +18,13 @@ trait CommentTrait
     {
         $row = Comment::findOrFail($id);
         $row->delete();
+        return redirect()->back();
+    }
+
+    public function commentUpdate(CommentRequest $request, $id)
+    {
+        $row = Comment::findOrFail($id);
+        $row->update($request->validated());
 
         return redirect()->back();
     }
