@@ -13,4 +13,12 @@ trait CommentTrait
 
         return redirect()->back();
     }
+
+    public function commentDelete($id)
+    {
+        $row = Comment::findOrFail($id);
+        $row->delete();
+
+        return redirect()->back();
+    }
 }

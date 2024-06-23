@@ -26,6 +26,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
     Route::resource('pages', PageController::class)->except(['show']);
     Route::resource('videos', VideoController::class)->except(['show']);
     Route::post('comments', [VideoController::class, 'commentStore'])->name('comment.store');
+    Route::get('comments/{id}', [VideoController::class, 'commentDelete'])->name('comment.delete');
 });
 
 Auth::routes();

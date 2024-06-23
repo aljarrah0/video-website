@@ -8,6 +8,12 @@
                     <p>{{ $comment->comment }}</p>
                     <small>{{ $comment->created_at }}</small>
                 </td>
+                <td>
+                    <a href="{{ route('admin.comment.delete', $comment) }}" rel="tooltip"
+                        class="btn btn-white btn-link btn-sm" data-original-title="حذف">
+                        <i class="material-icons">close</i>
+                    </a>
+                </td>
             </tr>
         @empty
             <tr>
