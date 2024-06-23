@@ -15,6 +15,18 @@
                     </a>
                 </td>
             </tr>
+            <tr>
+                <td colspan="4">
+                    <form action="{{ route('admin.comment.update', ['id' => $comment]) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" value="{{ $comment->video_id }}" name="video_id">
+                        @include('back-end.comments.form', ['row' => $comment])
+                        <button type="submit" class="btn btn-primary pull-right">تعديل تعليق</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </td>
+            </tr>
         @empty
             <tr>
                 <td class="text-center" colspan="10">{{ trans('app.no_data') }}</td>
