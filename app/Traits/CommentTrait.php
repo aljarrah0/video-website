@@ -11,14 +11,15 @@ trait CommentTrait
     {
         Comment::create(['user_id' => auth()->user()->id] + $request->validated());
 
-        return redirect()->back();
+        return redirect()->route('admin.videos.edit', [$request->video_id, '#comment']);
     }
 
     public function commentDelete($id)
     {
         $row = Comment::findOrFail($id);
         $row->delete();
-        return redirect()->back();
+
+        return redirect()->route('admin.videos.edit', [$row->video_id, '#comment']);
     }
 
     public function commentUpdate(CommentRequest $request, $id)
@@ -26,6 +27,6 @@ trait CommentTrait
         $row = Comment::findOrFail($id);
         $row->update($request->validated());
 
-        return redirect()->back();
+        return redirect()->route('admin.videos.edit', [$request->video_id, '#comment']);
     }
 }
