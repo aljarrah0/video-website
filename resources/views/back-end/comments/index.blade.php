@@ -19,7 +19,7 @@
                     </a>
                 </td>
             </tr>
-            <tr>
+            <tr style="display: none">
                 <td colspan="4">
                     <form action="{{ route('admin.comment.update', ['id' => $comment]) }}" method="POST">
                         @csrf
