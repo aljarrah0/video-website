@@ -8,7 +8,11 @@
                     <p>{{ $comment->comment }}</p>
                     <small>{{ $comment->created_at }}</small>
                 </td>
-                <td>
+                <td class="td-actions text-right">
+                    <a rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="تعديل"
+                        aria-describedby="tooltip15827">
+                        <i class="material-icons">edit</i>
+                    </a>
                     <a href="{{ route('admin.comment.delete', $comment) }}" rel="tooltip"
                         class="btn btn-white btn-link btn-sm" data-original-title="حذف">
                         <i class="material-icons">close</i>
