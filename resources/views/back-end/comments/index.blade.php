@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" id="comment">
     <tbody>
         @forelse ($comments as $comment)
             <tr>
@@ -9,8 +9,8 @@
                     <small>{{ $comment->created_at }}</small>
                 </td>
                 <td class="td-actions text-right">
-                    <a rel="tooltip" title="" onclick="$(this).closest('tr').next('tr').slideToggle()" class="btn btn-white btn-link btn-sm" data-original-title="تعديل"
-                        aria-describedby="tooltip15827">
+                    <a rel="tooltip" title="" onclick="$(this).closest('tr').next('tr').slideToggle()"
+                        class="btn btn-white btn-link btn-sm" data-original-title="تعديل" aria-describedby="tooltip15827">
                         <i class="material-icons">edit</i>
                     </a>
                     <a href="{{ route('admin.comment.delete', $comment) }}" rel="tooltip"
