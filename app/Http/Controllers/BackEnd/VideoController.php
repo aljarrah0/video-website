@@ -47,10 +47,7 @@ class VideoController extends BackEndController
 
     public function store(VideoRequest $request)
     {
-        $image = $request->file('image');
-        $imageName = time().Str::random(10).'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('uploads'), $imageName);
-
+        $imageName = $this->uploadImage($request);
         $video = $this->model->create(['user_id' => auth()->user()->id, 'image' => $imageName] + $request->validated());
         $video->skills()->sync($request->skills);
         $video->tags()->sync($request->tags);
@@ -60,16 +57,23 @@ class VideoController extends BackEndController
 
     public function update(VideoRequest $request, Video $video)
     {
+
+        $imageName = $this->uploadImage($request);
+        $video->update(['image' => $imageName ?? $video->image] + $request->validated());
+        $video->skills()->sync($request->skills);
+        $video->tags()->sync($request->tags);
+
+        return redirect()->route('admin.'.$this->getModelName().'.index');
+    }
+
+    private function uploadImage($request)
+    {
         $image = $request->file('image');
         if ($image) {
             $imageName = time().Str::random(10).'.'.$image->getClientOriginalExtension();
             $image->move(public_path('uploads'), $imageName);
         }
 
-        $video->update(['image' => $imageName ?? $video->image] + $request->validated());
-        $video->skills()->sync($request->skills);
-        $video->tags()->sync($request->tags);
-
-        return redirect()->route('admin.'.$this->getModelName().'.index');
+        return $imageName;
     }
 }
