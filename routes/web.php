@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('frontend.landing');
 
 Route::prefix('admin')->as('admin.')->group(function () {
     Route::controller(HomeController::class)->group(function () {
