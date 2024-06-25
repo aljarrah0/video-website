@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Video;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $rows = Video::latest()->get(['id', 'name', 'created_at', 'image']);
+
+        return view('home', get_defined_vars());
     }
 }
