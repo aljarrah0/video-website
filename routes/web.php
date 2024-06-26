@@ -35,6 +35,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/categories/{category}', [HomeController::class, 'category'])->name('frontend.category');
+Route::get('/skills/{skill}', [HomeController::class, 'skills'])->name('frontend.skills');
 
 Route::fallback(function () {
     return 'هذا الرابط غير موجود';
