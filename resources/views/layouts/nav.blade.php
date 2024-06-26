@@ -22,7 +22,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         @foreach ($categories as $category)
-                            <a class="dropdown-item">
+                            <a class="dropdown-item" href="{{ route('frontend.category', $category) }}">
                                 {{ $category->name }}
                             </a>
                         @endforeach
