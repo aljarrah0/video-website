@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rows = Video::latest()->get(['id', 'name', 'created_at', 'image']);
+        $rows = Video::latest()->paginate(Controller::PAGE_SIZE, ['id', 'name', 'created_at', 'image']);
 
         return view('home', get_defined_vars());
     }
