@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="./assets/frontend/img//favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Paper Kit by Creative Tim
+        @yield('title')
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -43,8 +43,6 @@
         <script src="./assets/frontend/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
         <!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
         <script src="./assets/frontend/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
-        <!--  Google Maps Plugin    -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         <script>
             $(document).ready(function() {
 
