@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\BackEnd\CategoryController;
-use App\Http\Controllers\BackEnd\HomeController;
+use App\Http\Controllers\BackEnd\HomeController as BackEndHomeController;
 use App\Http\Controllers\BackEnd\PageController;
 use App\Http\Controllers\BackEnd\SkillController;
 use App\Http\Controllers\BackEnd\TagController;
 use App\Http\Controllers\BackEnd\UserController;
 use App\Http\Controllers\BackEnd\VideoController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ Route::get('/', function () {
 })->name('frontend.landing');
 
 Route::prefix('admin')->as('admin.')->group(function () {
-    Route::controller(HomeController::class)->group(function () {
+    Route::controller(BackEndHomeController::class)->group(function () {
         Route::get('/home', 'home')->name('home');
     });
 
@@ -32,7 +33,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::fallback(function () {
     return 'هذا الرابط غير موجود';
