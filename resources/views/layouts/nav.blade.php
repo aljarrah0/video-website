@@ -28,6 +28,19 @@
                         @endforeach
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown">
+                        <p>المهارات</p>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @foreach ($skills as $skill)
+                            <a class="dropdown-item" href="{{ route('frontend.skills', $skill) }}">
+                                {{ $skill->name }}
+                            </a>
+                        @endforeach
+                    </div>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" rel="tooltip" data-placement="bottom" href="{{ route('login') }}"
                         target="_blank">
