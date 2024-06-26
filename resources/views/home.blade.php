@@ -13,6 +13,11 @@
                     </div>
                 @endforeach
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ $rows->links() }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection
