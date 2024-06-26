@@ -34,6 +34,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/categories/{category}', [HomeController::class, 'category'])->name('frontend.category');
 
 Route::fallback(function () {
     return 'هذا الرابط غير موجود';
