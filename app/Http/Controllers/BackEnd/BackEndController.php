@@ -8,10 +8,6 @@ use Illuminate\Support\Str;
 
 class BackEndController extends Controller
 {
-    const PAGE_SIZE = 25;
-
-    const LONG_PAGE_SIZE = 100;
-
     public function __construct(protected Model $model)
     {
 
