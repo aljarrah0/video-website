@@ -33,6 +33,6 @@ class HomeController extends Controller
     {
         $videos = Video::where('category_id', $category->id)->paginate(Controller::PAGE_SIZE);
 
-        return view('front-end.videos.index', get_defined_vars());
+        return view('front-end.categories.index', get_defined_vars());
     }
 }
