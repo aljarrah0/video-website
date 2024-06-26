@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', 'آخر الفيديوهات')
 @section('content')
     <div class="section section-buttons">
         <div class="container">
@@ -7,7 +8,7 @@
                 <h2>آخر الفيديوهات</h2>
             </div>
             <div class="row">
-                @foreach ($rows as $row)
+                @foreach ($videos as $video)
                     <div class="col-lg-4">
                         @include('front-end.shared.video-card')
                     </div>
@@ -15,7 +16,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    {{ $rows->links() }}
+                    {{ $videos->links() }}
                 </div>
             </div>
         </div>
