@@ -34,7 +34,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/categories/{category}', [HomeController::class, 'category'])->name('frontend.category');
+Route::get('/categories/{category}', [HomeController::class, 'category'])->name('frontend.categories');
 Route::get('/skills/{skill}', [HomeController::class, 'skills'])->name('frontend.skills');
 Route::get('/videos/{video}', [HomeController::class, 'video'])->name('frontend.videos');
 
