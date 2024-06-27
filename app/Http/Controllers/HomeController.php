@@ -39,9 +39,11 @@ class HomeController extends Controller
 
     public function skills(Skill $skill)
     {
-        $videos = Video::whereHas('skills', function ($query) use ($skill) {
-            $query->where('skill_id', $skill->id);
-        })->paginate(Controller::PAGE_SIZE);
+        $videos = $skill->videos()->paginate(Controller::PAGE_SIZE);
+
+        // $videos = Video::whereHas('skills', function ($query) use ($skill) {
+        //     $query->where('skill_id', $skill->id);
+        // })->paginate(Controller::PAGE_SIZE);
 
         return view('front-end.skills.index', get_defined_vars());
     }
