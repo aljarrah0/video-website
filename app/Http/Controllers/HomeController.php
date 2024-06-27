@@ -37,6 +37,11 @@ class HomeController extends Controller
         return view('front-end.categories.index', get_defined_vars());
     }
 
+    public function video(Video $video)
+    {
+        return view('front-end.videos.index', get_defined_vars());
+    }
+
     public function skills(Skill $skill)
     {
         $videos = $skill->videos()->paginate(Controller::PAGE_SIZE);
