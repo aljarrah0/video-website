@@ -72,8 +72,8 @@ class VideoController extends BackEndController
         if ($image) {
             $imageName = time().Str::random(10).'.'.$image->getClientOriginalExtension();
             $image->move(public_path('uploads'), $imageName);
-        }
 
-        return $imageName;
+            return $imageName;
+        }
     }
 }
