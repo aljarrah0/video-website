@@ -1,14 +1,11 @@
 <div class="row">
     @if (isset($row))
-        <x-name :$row />
-        <x-email :$row />
-        <x-phone :$row />
     @else
         @php $row = null @endphp
-        <x-name :$row />
-        <x-email :$row />
-        <x-phone :$row />
     @endif
+    <x-name :$row />
+    <x-email :$row />
+    <x-phone :$row />
     @php $input = 'password' @endphp
     <div class="col-md-4">
         <div class="form-group bmd-form-group">
