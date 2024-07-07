@@ -1,8 +1,7 @@
 <div class="row">
-    @if(isset($row))
-        <x-name :$row  />
+    @if (isset($row))
     @else
         @php $row = null @endphp
-        <x-name :$row />
     @endif
+    <x-name :$row />
 </div>
