@@ -23,9 +23,9 @@ class UserRequest extends FormRequest
     {
         $commonRules = [
             'name' => ['required', 'string', 'min:3', 'max:255'],
+            'phone' => ['required', 'regex:/^(010|011|012|015)[0-9]{8}$/'],
 
         ];
-
         if ($this->method() == 'POST') {
             $specialRules = [
                 'email' => ['required', 'string', 'email', 'min:3', 'max:255', 'unique:users'],
