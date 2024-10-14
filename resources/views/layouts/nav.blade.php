@@ -17,14 +17,13 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <p>التصنيفات</p>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         @foreach ($categories as $category)
-                            <a class="dropdown-item" href="{{ route('frontend.categories', $category) }}">
-                                {{ $category->name }}
-                            </a>
+                            <a class="dropdown-item"
+                                href="{{ route('frontend.categories', $category) }}">{{ $category->name }}</a>
                         @endforeach
                     </div>
                 </li>
